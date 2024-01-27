@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookHaven Library Signup</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="mb-4">Welcome to BookHaven Library!</h2>
+    <p>Sign up today to explore our extensive collection and enjoy exclusive member benefits.</p>
+
+    <form action="signup_process.php" method="post">
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" class="form-control" id="fullName" name="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+      </div>
+
+      <div class="form-group">
+        <label for="preferredGenre">Preferred Genre(s):</label>
+        <select class="form-control" id="preferredGenre" name="preferredGenre">
+          <option value="fiction">Fiction</option>
+          <option value="nonfiction">Non-Fiction</option>
+          <option value="mystery">Mystery</option>
+          <option value="sci-fi">Science Fiction</option>
+        </select>
+      </div>
+
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="subscribeNewsletter" name="subscribeNewsletter">
+        <label class="form-check-label" for="subscribeNewsletter">Subscribe to Newsletter</label>
+      </div>
+
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="termsConditions" name="termsConditions" required>
+        <label class="form-check-label" for="termsConditions">I agree to the Terms and Conditions</label>
+      </div>
+
+      <a href="Book.html" class="btn btn-primary">Login</a>    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
