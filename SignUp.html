@@ -60,7 +60,7 @@
 
       <div class="form-group">
         <label for="preferredGenre">Preferred Genre(s):</label>
-        <select class="form-control" id="preferredGenre" name="preferredGenre" required>
+        <select class="form-control" id="preferredGenre" name="preferredGenre">
           <option value="fiction">Fiction</option>
           <option value="nonfiction">Non-Fiction</option>
           <option value="mystery">Mystery</option>
@@ -69,7 +69,7 @@
       </div>
 
       <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="subscribeNewsletter" name="subscribeNewsletter" required>
+        <input type="checkbox" class="form-check-input" id="subscribeNewsletter" name="subscribeNewsletter">
         <label class="form-check-label" for="subscribeNewsletter">Subscribe to Newsletter</label>
       </div>
 
@@ -77,9 +77,10 @@
         <input type="checkbox" class="form-check-input" id="termsConditions" name="termsConditions" required>
         <label class="form-check-label" for="termsConditions">I agree to the Terms and Conditions</label>
       </div>
+<a href="book.html">
+      <button type="submit" class="btn btn-primary">Sign Up</button></a>
+      <a href="Loginpage.html" class="btn btn-secondary">Login</a> <!-- Assuming this link is for login -->
     </form>
-    <a href="Book.html">
-    <button type="submit" class="btn btn-primary" onclick="validateForm()">Sign Up</button></a>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
