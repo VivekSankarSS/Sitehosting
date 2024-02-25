@@ -1,168 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BookHaven Library Signup</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .container {
-      max-width: 400px;
-      margin: 50px auto;
-    }
-    .password-strength {
-      margin-top: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    <div class="login-page">
+        <div class="form">
+    <h2>Sign Up</h2>
+    <form id="signupForm" onsubmit="return validateForm()">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <span id="emailError" class="error"></span><br>
 
-  <div class="container">
-    <h2 class="mb-4">Welcome to BookHaven Library!</h2>
-    <p>Sign up today to explore our extensive collection and enjoy exclusive member benefits.</p>
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone" required><br>
+        <span id="phoneError" class="error"></span><br>
 
-    <form action="signup_process.php" method="post" onsubmit="return validateForm()">
-      <div class="form-group">
-        <label for="fullName">Full Name:</label>
-        <input type="text" class="form-control" id="fullName" name="fullName" required>
-      </div>
-
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-        <small id="emailError" class="text-danger"></small>
-      </div>
-
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
-        <small id="phoneError" class="text-danger"></small>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" name="password" required onkeyup="checkPasswordStrength()">
-        <div id="passwordStrength" class="password-strength"></div>
-      </div>
-
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-      </div>
-
-      <div class="form-group">
-        <label for="preferredGenre">Preferred Genre(s):</label>
-        <select class="form-control" id="preferredGenre" name="preferredGenre">
-          <option value="fiction">Fiction</option>
-          <option value="nonfiction">Non-Fiction</option>
-          <option value="mystery">Mystery</option>
-          <option value="sci-fi">Science Fiction</option>
-        </select>
-      </div>
-
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="subscribeNewsletter" name="subscribeNewsletter">
-        <label class="form-check-label" for="subscribeNewsletter">Subscribe to Newsletter</label>
-      </div>
-
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="termsConditions" name="termsConditions" required>
-        <label class="form-check-label" for="termsConditions">I agree to the Terms and Conditions</label>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Sign Up</button>
-      <a href="Book.html" class="btn btn-secondary">Login</a> <!-- Assuming this link is for login -->
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <span id="passwordError" class="error"></span><br>
+        <span id="passwordStrength" class="password-strength"></span><br>
+        <button type="submit">Sign Up</button>
     </form>
-  </div>
+    </div>
+</div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <script>
-    function validateForm() {
-      var email = document.getElementById('email').value;
-      var emailError = document.getElementById('emailError');
-      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(email)) {
-        emailError.textContent = 'Please enter a valid email address.';
-        return false;
-      }
-
-      var phoneNumber = document.getElementById('phoneNumber').value;
-      var phoneError = document.getElementById('phoneError');
-      var phoneRegex = /^(\d{10}|(\d{3}[-.\s])\d{3}[-.\s]\d{4})$/;
-
-      if (!phoneRegex.test(phoneNumber)) {
-        phoneError.textContent = 'Please enter a valid phone number.';
-        return false;
-      }
-
-      var password = document.getElementById('password').value;
-      var confirmPassword = document.getElementById('confirmPassword').value;
-      var passwordStrength = document.getElementById('passwordStrength');
-
-      if (password != confirmPassword) {
-        passwordStrength.innerHTML = '';
-        passwordStrength.textContent = 'Passwords do not match.';
-        return false;
-      }
-
-      return true;
-    }
-
-    function checkPasswordStrength() {
-      var password = document.getElementById('password').value;
-      var passwordStrength = document.getElementById('passwordStrength');
-      var strength = 0;
-
-      if (password.length >= 8) {
-        strength += 1;
-      }
-      if (password.match(/[a-z]+/)) {
-        strength += 1;
-      }
-      if (password.match(/[A-Z]+/)) {
-        strength += 1;
-      }
-      if (password.match(/[0-9]+/)) {
-        strength += 1;
-      }
-
-      var color = "";
-      var text = "";
-
-      switch(strength) {
-        case 0:
-        case 1:
-          color = "red";
-          text = "Poor";
-          break;
-        case 2:
-          color = "orange";
-          text = "Medium";
-          break;
-        case 3:
-        case 4:
-          color = "green";
-          text = "Strong";
-          break;
-      }
-
-      passwordStrength.innerHTML = '';
-      passwordStrength.textContent = 'Password Strength: ' + text;
-      passwordStrength.style.color = color;
-    }
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
